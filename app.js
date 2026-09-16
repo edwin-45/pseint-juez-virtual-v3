@@ -20,7 +20,20 @@ const els = {
   codeEditor: $("#codeEditor"), consoleOutput: $("#consoleOutput"), judgeResult: $("#judgeResult"),
   saveStatus: $("#saveStatus"), exportBtn: $("#exportBtn"), importInput: $("#importInput"),
   logoutBtn: $("#logoutBtn"), runBtn: $("#runBtn"), submitBtn: $("#submitBtn"),
-  resetCodeBtn: $("#resetCodeBtn"), clearConsoleBtn: $("#clearConsoleBtn")
+  resetCodeBtn: $("#resetCodeBtn"), clearConsoleBtn: $("#clearConsoleBtn"),
+  studentArea: $("#studentArea"), adminDashboard: $("#adminDashboard"),
+  adminStudentCount: $("#adminStudentCount"), adminAverageProgress: $("#adminAverageProgress"),
+  adminSolvedTotal: $("#adminSolvedTotal"), adminAttemptsTotal: $("#adminAttemptsTotal"),
+  adminSearch: $("#adminSearch"), adminProgressFilter: $("#adminProgressFilter"),
+  adminStudentRows: $("#adminStudentRows"), adminEmpty: $("#adminEmpty"),
+  studentDetailPanel: $("#studentDetailPanel"), closeStudentDetail: $("#closeStudentDetail"),
+  detailStudentName: $("#detailStudentName"), detailStudentMeta: $("#detailStudentMeta"),
+  detailProgress: $("#detailProgress"), detailSolved: $("#detailSolved"),
+  detailAttempts: $("#detailAttempts"), detailLastSolved: $("#detailLastSolved"),
+  detailSiText: $("#detailSiText"), detailSiBar: $("#detailSiBar"),
+  detailSegunText: $("#detailSegunText"), detailSegunBar: $("#detailSegunBar"),
+  difficultySummary: $("#difficultySummary"), detailExerciseFilter: $("#detailExerciseFilter"),
+  studentExerciseGrid: $("#studentExerciseGrid")
 };
 
 let exercises = [];
@@ -28,6 +41,7 @@ let activeExercise = null;
 let state = loadState();
 let drafts = loadDrafts();
 let saveTimer = null;
+let selectedAdminStudentCode = null;
 
 function defaultState() {
   return { version: 1, users: {}, activeUserCode: null };
@@ -94,6 +108,16 @@ function bindEvents() {
   els.clearConsoleBtn.addEventListener("click", () => els.consoleOutput.textContent = "");
   els.codeEditor.addEventListener("input", scheduleDraftSave);
   els.codeEditor.addEventListener("keydown", editorTabs);
+
+  els.adminSearch.addEventListener("input", renderAdminDashboard);
+  els.adminProgressFilter.addEventListener("change", renderAdminDashboard);
+  els.closeStudentDetail.addEventListener("click", () => {
+    selectedAdminStudentCode = null;
+    els.studentDetailPanel.classList.add("hidden");
+  });
+  els.detailExerciseFilter.addEventListener("change", () => {
+    if (selectedAdminStudentCode) renderStudentDetail(selectedAdminStudentCode);
+  });
 }
 
 function handleLogin(e) {
@@ -156,6 +180,16 @@ function renderSession() {
   const admin = isAdmin();
   els.userBadge.innerHTML = `${escapeHtml(user.name)} · ${escapeHtml(user.code)} <span class="role-badge ${admin ? "role-admin" : "role-student"}">${admin ? "ADMINISTRADOR" : "ESTUDIANTE"}</span>`;
   els.adminTools.classList.toggle("hidden", !admin);
+  els.studentArea.classList.toggle("hidden", admin);
+  els.adminDashboard.classList.toggle("hidden", !admin);
+
+  if (admin) {
+    activeExercise = null;
+    selectedAdminStudentCode = null;
+    els.studentDetailPanel.classList.add("hidden");
+    renderAdminDashboard();
+    return;
+  }
 
   renderProgress();
   renderExerciseList();
@@ -212,6 +246,7 @@ function renderExerciseList() {
 }
 
 function showExercise(id) {
+  if (isAdmin()) return;
   activeExercise = exercises.find(e => e.id === id);
   if (!activeExercise) return;
   els.emptyState.classList.add("hidden");
@@ -269,6 +304,7 @@ function editorTabs(e) {
 }
 
 function runExample() {
+  if (isAdmin()) return;
   if (!activeExercise) return;
   const ex = activeExercise.examples[0];
   try {
@@ -300,6 +336,7 @@ function validateRequiredConstructs(code, required = []) {
 }
 
 function submitSolution() {
+  if (isAdmin()) return;
   if (!activeExercise) return;
   const user = getUser();
   const code = els.codeEditor.value;
@@ -685,6 +722,193 @@ function judgeError(message,line=null) {
   const e=new Error(message); e.line=line; e.isJudgeError=true; return e;
 }
 
+
+/* ---------------- Panel administrativo ---------------- */
+
+function getStudentUsers() {
+  return Object.values(state.users || {}).filter(user =>
+    user &&
+    user.code !== ADMIN_CODE &&
+    user.role !== "admin"
+  );
+}
+
+function solvedCountForTopic(user, topic) {
+  const solved = user.solved || {};
+  return exercises.filter(ex => ex.topic === topic && solved[ex.id]).length;
+}
+
+function totalAttemptsForUser(user) {
+  return Object.values(user.attempts || {}).reduce((sum, n) => sum + (Number(n) || 0), 0);
+}
+
+function progressPercent(user) {
+  const solved = Object.keys(user.solved || {}).length;
+  return exercises.length ? Math.round((solved / exercises.length) * 100) : 0;
+}
+
+function progressState(user) {
+  const solved = Object.keys(user.solved || {}).length;
+  if (solved === 0) return "not-started";
+  if (solved >= exercises.length) return "completed";
+  return "in-progress";
+}
+
+function renderAdminDashboard() {
+  if (!isAdmin()) return;
+
+  const allStudents = getStudentUsers();
+  const totalSolved = allStudents.reduce((sum, u) => sum + Object.keys(u.solved || {}).length, 0);
+  const totalAttempts = allStudents.reduce((sum, u) => sum + totalAttemptsForUser(u), 0);
+  const avg = allStudents.length
+    ? Math.round(allStudents.reduce((sum, u) => sum + progressPercent(u), 0) / allStudents.length)
+    : 0;
+
+  els.adminStudentCount.textContent = allStudents.length;
+  els.adminAverageProgress.textContent = `${avg}%`;
+  els.adminSolvedTotal.textContent = totalSolved;
+  els.adminAttemptsTotal.textContent = totalAttempts;
+
+  const q = (els.adminSearch.value || "").trim().toLowerCase();
+  const filter = els.adminProgressFilter.value;
+
+  const students = allStudents
+    .filter(u => !q || `${u.name} ${u.code}`.toLowerCase().includes(q))
+    .filter(u => !filter || progressState(u) === filter)
+    .sort((a, b) => progressPercent(b) - progressPercent(a) || a.name.localeCompare(b.name));
+
+  els.adminStudentRows.innerHTML = "";
+  els.adminEmpty.classList.toggle("hidden", students.length > 0);
+
+  for (const user of students) {
+    const solvedTotal = Object.keys(user.solved || {}).length;
+    const siSolved = solvedCountForTopic(user, "Si / Entonces");
+    const segunSolved = solvedCountForTopic(user, "Segun");
+    const attempts = totalAttemptsForUser(user);
+    const percent = progressPercent(user);
+
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td><strong>${escapeHtml(user.name)}</strong></td>
+      <td><code>${escapeHtml(user.code)}</code></td>
+      <td>${siSolved} / 30</td>
+      <td>${segunSolved} / 30</td>
+      <td><strong>${solvedTotal} / ${exercises.length}</strong></td>
+      <td>${attempts}</td>
+      <td>
+        <div class="table-progress">
+          <div class="progress-track"><div class="progress-bar" style="width:${percent}%"></div></div>
+          <strong>${percent}%</strong>
+        </div>
+      </td>
+      <td><button class="btn ghost small-btn" data-student="${escapeHtml(user.code)}">Ver detalle</button></td>
+    `;
+    tr.querySelector("[data-student]").addEventListener("click", () => {
+      selectedAdminStudentCode = user.code;
+      els.detailExerciseFilter.value = "";
+      renderStudentDetail(user.code);
+      els.studentDetailPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    els.adminStudentRows.appendChild(tr);
+  }
+
+  if (selectedAdminStudentCode && state.users[selectedAdminStudentCode]) {
+    renderStudentDetail(selectedAdminStudentCode);
+  }
+}
+
+function renderStudentDetail(code) {
+  if (!isAdmin()) return;
+  const user = state.users[code];
+  if (!user || code === ADMIN_CODE) return;
+
+  const solved = user.solved || {};
+  const solvedTotal = Object.keys(solved).length;
+  const attempts = totalAttemptsForUser(user);
+  const percent = progressPercent(user);
+  const siSolved = solvedCountForTopic(user, "Si / Entonces");
+  const segunSolved = solvedCountForTopic(user, "Segun");
+
+  els.studentDetailPanel.classList.remove("hidden");
+  els.detailStudentName.textContent = user.name;
+  const registered = user.registeredAt ? formatDateTime(user.registeredAt) : "Fecha no disponible";
+  els.detailStudentMeta.textContent = `Código ${user.code} · Registrado: ${registered}`;
+  els.detailProgress.textContent = `${percent}%`;
+  els.detailSolved.textContent = `${solvedTotal} / ${exercises.length}`;
+  els.detailAttempts.textContent = attempts;
+
+  const solvedDates = Object.entries(solved)
+    .filter(([,info]) => info && info.solvedAt)
+    .sort((a,b) => new Date(b[1].solvedAt) - new Date(a[1].solvedAt));
+  if (solvedDates.length) {
+    const [lastId, lastInfo] = solvedDates[0];
+    const lastEx = exercises.find(e => e.id === lastId);
+    els.detailLastSolved.textContent = `${lastEx ? lastEx.id : lastId} · ${formatDateTime(lastInfo.solvedAt)}`;
+  } else {
+    els.detailLastSolved.textContent = "Ninguno";
+  }
+
+  els.detailSiText.textContent = `${siSolved} / 30`;
+  els.detailSiBar.style.width = `${Math.round(siSolved / 30 * 100)}%`;
+  els.detailSegunText.textContent = `${segunSolved} / 30`;
+  els.detailSegunBar.style.width = `${Math.round(segunSolved / 30 * 100)}%`;
+
+  const difficulties = ["Básico", "Intermedio", "Avanzado"];
+  els.difficultySummary.innerHTML = difficulties.map(diff => {
+    const diffExercises = exercises.filter(e => e.difficulty === diff);
+    const count = diffExercises.filter(e => solved[e.id]).length;
+    const pct = diffExercises.length ? Math.round(count / diffExercises.length * 100) : 0;
+    return `
+      <article>
+        <div><strong>${escapeHtml(diff)}</strong><span>${count} / ${diffExercises.length}</span></div>
+        <div class="progress-track"><div class="progress-bar" style="width:${pct}%"></div></div>
+      </article>`;
+  }).join("");
+
+  const filter = els.detailExerciseFilter.value;
+  const visibleExercises = exercises.filter(ex => {
+    const isSolved = !!solved[ex.id];
+    if (filter === "solved") return isSolved;
+    if (filter === "pending") return !isSolved;
+    if (filter === "Si / Entonces" || filter === "Segun") return ex.topic === filter;
+    return true;
+  });
+
+  els.studentExerciseGrid.innerHTML = visibleExercises.map(ex => {
+    const info = solved[ex.id];
+    const attemptCount = Number((user.attempts || {})[ex.id] || 0);
+    const status = info ? "Resuelto" : attemptCount > 0 ? "Intentado" : "Pendiente";
+    const statusClass = info ? "solved" : attemptCount > 0 ? "attempted" : "pending";
+    const date = info?.solvedAt ? formatDateTime(info.solvedAt) : "";
+    return `
+      <article class="admin-exercise-card ${statusClass}">
+        <div class="admin-exercise-top">
+          <span>${escapeHtml(ex.id)}</span>
+          <strong>${escapeHtml(status)}</strong>
+        </div>
+        <h4>${escapeHtml(ex.title)}</h4>
+        <p>${escapeHtml(ex.topic)} · ${escapeHtml(ex.difficulty)}</p>
+        <div class="admin-exercise-meta">
+          <span>Intentos: ${attemptCount}</span>
+          ${date ? `<span>${escapeHtml(date)}</span>` : ""}
+        </div>
+      </article>`;
+  }).join("");
+}
+
+function formatDateTime(value) {
+  try {
+    const d = new Date(value);
+    if (Number.isNaN(d.getTime())) return "Fecha no disponible";
+    return new Intl.DateTimeFormat("es-CO", {
+      year: "numeric", month: "2-digit", day: "2-digit",
+      hour: "2-digit", minute: "2-digit"
+    }).format(d);
+  } catch {
+    return "Fecha no disponible";
+  }
+}
+
 /* ---------------- JSON import/export ---------------- */
 
 function exportJson() {
@@ -719,6 +943,7 @@ async function importJson(e) {
     state=mergeStates(state,incoming);
     saveState();
     renderSession();
+    if (isAdmin()) renderAdminDashboard();
     toast("JSON importado y combinado.");
   } catch(err) { toast(`No se pudo importar: ${err.message}`); }
   finally { e.target.value=""; }

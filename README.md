@@ -132,3 +132,25 @@ El juez también acepta `Proceso / FinProceso` porque PSeInt admite ambas formas
 - `+ - * / ^ MOD`
 - `= <> < > <= >=`
 - `Y O NO`
+
+
+## Panel administrativo (v4)
+
+Al ingresar con `04370` / `EDWIN TORRADO`, la aplicación ya no muestra el editor ni los ejercicios para resolver.
+
+El administrador ve exclusivamente:
+
+- cantidad de estudiantes registrados;
+- avance promedio;
+- total de ejercicios resueltos;
+- total de intentos;
+- progreso individual en `Si / Entonces`;
+- progreso individual en `Segun`;
+- porcentaje total;
+- avance por dificultad;
+- ejercicios resueltos, intentados y pendientes;
+- fecha del último ejercicio resuelto;
+- detalle de intentos por ejercicio;
+- herramientas de importar y exportar JSON.
+
+Los estudiantes continúan usando el juez normalmente.

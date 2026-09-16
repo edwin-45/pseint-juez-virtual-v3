@@ -56,7 +56,7 @@
       </div>
     </header>
 
-    <div class="layout">
+    <div id="studentArea" class="layout">
       <aside class="sidebar">
         <div class="progress-card">
           <div class="progress-head">
@@ -153,6 +153,128 @@
         </section>
       </main>
     </div>
+
+    <main id="adminDashboard" class="admin-dashboard hidden">
+      <section class="admin-hero">
+        <div>
+          <p class="eyebrow">PANEL DEL DOCENTE</p>
+          <h1>Seguimiento de estudiantes</h1>
+          <p class="muted">Consulta el avance general y el detalle de cada estudiante. La cuenta administradora no participa en los ejercicios.</p>
+        </div>
+        <div class="admin-sync-note">
+          <strong>Datos cargados</strong>
+          <span>Este panel muestra los registros existentes en este navegador y los JSON que hayas importado.</span>
+        </div>
+      </section>
+
+      <section class="admin-stats">
+        <article class="stat-card">
+          <span>Estudiantes</span>
+          <strong id="adminStudentCount">0</strong>
+          <small>registrados</small>
+        </article>
+        <article class="stat-card">
+          <span>Avance promedio</span>
+          <strong id="adminAverageProgress">0%</strong>
+          <small>de los 60 ejercicios</small>
+        </article>
+        <article class="stat-card">
+          <span>Ejercicios resueltos</span>
+          <strong id="adminSolvedTotal">0</strong>
+          <small>entre todos los estudiantes</small>
+        </article>
+        <article class="stat-card">
+          <span>Intentos registrados</span>
+          <strong id="adminAttemptsTotal">0</strong>
+          <small>envíos al juez</small>
+        </article>
+      </section>
+
+      <section class="admin-panel">
+        <div class="admin-panel-head">
+          <div>
+            <h2>Progreso por estudiante</h2>
+            <p>Selecciona un estudiante para consultar su avance detallado.</p>
+          </div>
+          <div class="admin-filters">
+            <input id="adminSearch" placeholder="Buscar por nombre o código...">
+            <select id="adminProgressFilter">
+              <option value="">Todos los avances</option>
+              <option value="not-started">Sin iniciar</option>
+              <option value="in-progress">En progreso</option>
+              <option value="completed">Completado</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Estudiante</th>
+                <th>Código</th>
+                <th>Si / Entonces</th>
+                <th>Segun</th>
+                <th>Total</th>
+                <th>Intentos</th>
+                <th>Avance</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="adminStudentRows"></tbody>
+          </table>
+        </div>
+        <div id="adminEmpty" class="admin-empty hidden">
+          <strong>No hay estudiantes para mostrar.</strong>
+          <span>Importa un JSON o registra estudiantes en este navegador.</span>
+        </div>
+      </section>
+
+      <section id="studentDetailPanel" class="admin-panel student-detail hidden">
+        <div class="admin-panel-head detail-head">
+          <div>
+            <p class="eyebrow">DETALLE DEL ESTUDIANTE</p>
+            <h2 id="detailStudentName">Estudiante</h2>
+            <p id="detailStudentMeta"></p>
+          </div>
+          <button id="closeStudentDetail" class="btn ghost">Cerrar detalle</button>
+        </div>
+
+        <div class="detail-stats">
+          <article><span>Progreso total</span><strong id="detailProgress">0%</strong></article>
+          <article><span>Resueltos</span><strong id="detailSolved">0 / 60</strong></article>
+          <article><span>Intentos</span><strong id="detailAttempts">0</strong></article>
+          <article><span>Último ejercicio resuelto</span><strong id="detailLastSolved">—</strong></article>
+        </div>
+
+        <div class="topic-progress-grid">
+          <article class="topic-progress-card">
+            <div><strong>Si / Entonces</strong><span id="detailSiText">0 / 30</span></div>
+            <div class="progress-track"><div id="detailSiBar" class="progress-bar"></div></div>
+          </article>
+          <article class="topic-progress-card">
+            <div><strong>Segun</strong><span id="detailSegunText">0 / 30</span></div>
+            <div class="progress-track"><div id="detailSegunBar" class="progress-bar"></div></div>
+          </article>
+        </div>
+
+        <h3 class="detail-section-title">Avance por dificultad</h3>
+        <div id="difficultySummary" class="difficulty-summary"></div>
+
+        <div class="detail-toolbar">
+          <h3>Estado de los 60 ejercicios</h3>
+          <select id="detailExerciseFilter">
+            <option value="">Todos</option>
+            <option value="solved">Resueltos</option>
+            <option value="pending">Pendientes</option>
+            <option value="Si / Entonces">Si / Entonces</option>
+            <option value="Segun">Segun</option>
+          </select>
+        </div>
+        <div id="studentExerciseGrid" class="student-exercise-grid"></div>
+      </section>
+    </main>
+
   </div>
 
   <script src="app.js"></script>
