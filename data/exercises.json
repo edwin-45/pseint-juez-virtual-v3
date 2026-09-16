@@ -1,0 +1,2467 @@
+[
+  {
+    "id": "SI01",
+    "title": "Batería crítica",
+    "topic": "Si / Entonces",
+    "difficulty": "Básico",
+    "statement": "Un dispositivo IoT reporta su porcentaje de batería. Si el porcentaje es menor a 15 debe mostrar RECARGAR; en caso contrario debe mostrar BATERIA OK.",
+    "input": "Un entero entre 0 y 100.",
+    "output": "RECARGAR o BATERIA OK.",
+    "examples": [
+      {
+        "input": "12",
+        "output": "RECARGAR"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir bateria Como Entero\n    Leer bateria\n\n    // Usa Si / SiNo para tomar la decisión\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "0",
+        "output": "RECARGAR"
+      },
+      {
+        "input": "14",
+        "output": "RECARGAR"
+      },
+      {
+        "input": "15",
+        "output": "BATERIA OK"
+      },
+      {
+        "input": "100",
+        "output": "BATERIA OK"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI02",
+    "title": "Acceso al laboratorio",
+    "topic": "Si / Entonces",
+    "difficulty": "Básico",
+    "statement": "Para ingresar a un laboratorio de robótica se exige una edad mínima de 16 años. Muestra ACCESO PERMITIDO si cumple la condición; de lo contrario, ACCESO DENEGADO.",
+    "input": "Un entero: edad.",
+    "output": "ACCESO PERMITIDO o ACCESO DENEGADO.",
+    "examples": [
+      {
+        "input": "17",
+        "output": "ACCESO PERMITIDO"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir edad Como Entero\n    Leer edad\n\n    // Decide si puede ingresar\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "15",
+        "output": "ACCESO DENEGADO"
+      },
+      {
+        "input": "16",
+        "output": "ACCESO PERMITIDO"
+      },
+      {
+        "input": "17",
+        "output": "ACCESO PERMITIDO"
+      },
+      {
+        "input": "8",
+        "output": "ACCESO DENEGADO"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI03",
+    "title": "Temperatura del servidor",
+    "topic": "Si / Entonces",
+    "difficulty": "Básico",
+    "statement": "Un servidor debe generar una alerta cuando su temperatura sea mayor a 75 °C. Si supera ese valor muestra ALERTA TERMICA; de lo contrario muestra TEMPERATURA NORMAL.",
+    "input": "Temperatura numérica en grados Celsius.",
+    "output": "ALERTA TERMICA o TEMPERATURA NORMAL.",
+    "examples": [
+      {
+        "input": "81",
+        "output": "ALERTA TERMICA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir temperatura Como Real\n    Leer temperatura\n\n    // Evalúa la temperatura\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "75",
+        "output": "TEMPERATURA NORMAL"
+      },
+      {
+        "input": "75.1",
+        "output": "ALERTA TERMICA"
+      },
+      {
+        "input": "40",
+        "output": "TEMPERATURA NORMAL"
+      },
+      {
+        "input": "99",
+        "output": "ALERTA TERMICA"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI04",
+    "title": "Viento para despegar",
+    "topic": "Si / Entonces",
+    "difficulty": "Básico",
+    "statement": "Un dron puede despegar únicamente si la velocidad del viento es menor o igual a 25 km/h. Muestra VUELO AUTORIZADO o VUELO CANCELADO.",
+    "input": "Velocidad del viento.",
+    "output": "VUELO AUTORIZADO o VUELO CANCELADO.",
+    "examples": [
+      {
+        "input": "20",
+        "output": "VUELO AUTORIZADO"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir viento Como Real\n    Leer viento\n\n    // Decide si el dron puede despegar\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "0",
+        "output": "VUELO AUTORIZADO"
+      },
+      {
+        "input": "25",
+        "output": "VUELO AUTORIZADO"
+      },
+      {
+        "input": "25.5",
+        "output": "VUELO CANCELADO"
+      },
+      {
+        "input": "60",
+        "output": "VUELO CANCELADO"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI05",
+    "title": "Inventario agotado",
+    "topic": "Si / Entonces",
+    "difficulty": "Básico",
+    "statement": "Un sistema de inventario recibe la cantidad disponible de un producto. Si la cantidad es 0 muestra AGOTADO; en cualquier otro caso muestra DISPONIBLE.",
+    "input": "Un entero: unidades en inventario.",
+    "output": "AGOTADO o DISPONIBLE.",
+    "examples": [
+      {
+        "input": "0",
+        "output": "AGOTADO"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir stock Como Entero\n    Leer stock\n\n    // Verifica el inventario\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "0",
+        "output": "AGOTADO"
+      },
+      {
+        "input": "1",
+        "output": "DISPONIBLE"
+      },
+      {
+        "input": "25",
+        "output": "DISPONIBLE"
+      },
+      {
+        "input": "500",
+        "output": "DISPONIBLE"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI06",
+    "title": "Radar de velocidad",
+    "topic": "Si / Entonces",
+    "difficulty": "Básico",
+    "statement": "En una vía el límite es 80 km/h. Si un vehículo circula a más de 80 muestra MULTA; de lo contrario muestra SIN MULTA.",
+    "input": "Velocidad del vehículo.",
+    "output": "MULTA o SIN MULTA.",
+    "examples": [
+      {
+        "input": "95",
+        "output": "MULTA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir velocidad Como Real\n    Leer velocidad\n\n    // Evalúa el límite de velocidad\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "79",
+        "output": "SIN MULTA"
+      },
+      {
+        "input": "80",
+        "output": "SIN MULTA"
+      },
+      {
+        "input": "81",
+        "output": "MULTA"
+      },
+      {
+        "input": "140",
+        "output": "MULTA"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI07",
+    "title": "Cuenta bloqueada",
+    "topic": "Si / Entonces",
+    "difficulty": "Básico",
+    "statement": "Una cuenta se bloquea cuando acumula 3 o más intentos fallidos de acceso. Muestra CUENTA BLOQUEADA si se alcanza el límite; si no, CUENTA ACTIVA.",
+    "input": "Número entero de intentos fallidos.",
+    "output": "CUENTA BLOQUEADA o CUENTA ACTIVA.",
+    "examples": [
+      {
+        "input": "3",
+        "output": "CUENTA BLOQUEADA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir intentos Como Entero\n    Leer intentos\n\n    // Comprueba el límite\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "0",
+        "output": "CUENTA ACTIVA"
+      },
+      {
+        "input": "2",
+        "output": "CUENTA ACTIVA"
+      },
+      {
+        "input": "3",
+        "output": "CUENTA BLOQUEADA"
+      },
+      {
+        "input": "8",
+        "output": "CUENTA BLOQUEADA"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI08",
+    "title": "Nivel de tanque",
+    "topic": "Si / Entonces",
+    "difficulty": "Básico",
+    "statement": "Un tanque debe cerrar automáticamente la válvula cuando el nivel llegue al 90% o más. Muestra CERRAR VALVULA o CONTINUAR LLENADO.",
+    "input": "Porcentaje de llenado.",
+    "output": "CERRAR VALVULA o CONTINUAR LLENADO.",
+    "examples": [
+      {
+        "input": "92",
+        "output": "CERRAR VALVULA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir nivel Como Real\n    Leer nivel\n\n    // Controla la válvula\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "20",
+        "output": "CONTINUAR LLENADO"
+      },
+      {
+        "input": "89.9",
+        "output": "CONTINUAR LLENADO"
+      },
+      {
+        "input": "90",
+        "output": "CERRAR VALVULA"
+      },
+      {
+        "input": "100",
+        "output": "CERRAR VALVULA"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI09",
+    "title": "Compra con saldo",
+    "topic": "Si / Entonces",
+    "difficulty": "Básico",
+    "statement": "Lee el saldo disponible y el valor de una compra. Si el saldo alcanza para pagar, muestra COMPRA APROBADA; de lo contrario muestra SALDO INSUFICIENTE.",
+    "input": "Saldo y valor de compra, en ese orden.",
+    "output": "COMPRA APROBADA o SALDO INSUFICIENTE.",
+    "examples": [
+      {
+        "input": "80000\n65000",
+        "output": "COMPRA APROBADA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir saldo, compra Como Real\n    Leer saldo\n    Leer compra\n\n    // Compara saldo y compra\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "80000\n65000",
+        "output": "COMPRA APROBADA"
+      },
+      {
+        "input": "65000\n65000",
+        "output": "COMPRA APROBADA"
+      },
+      {
+        "input": "64999\n65000",
+        "output": "SALDO INSUFICIENTE"
+      },
+      {
+        "input": "0\n1",
+        "output": "SALDO INSUFICIENTE"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI10",
+    "title": "Habilitación por asistencia",
+    "topic": "Si / Entonces",
+    "difficulty": "Básico",
+    "statement": "Un estudiante queda habilitado para presentar una actividad si su porcentaje de asistencia es al menos 80. Muestra HABILITADO o NO HABILITADO.",
+    "input": "Porcentaje de asistencia.",
+    "output": "HABILITADO o NO HABILITADO.",
+    "examples": [
+      {
+        "input": "86",
+        "output": "HABILITADO"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir asistencia Como Real\n    Leer asistencia\n\n    // Evalúa la asistencia\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "79.9",
+        "output": "NO HABILITADO"
+      },
+      {
+        "input": "80",
+        "output": "HABILITADO"
+      },
+      {
+        "input": "86",
+        "output": "HABILITADO"
+      },
+      {
+        "input": "100",
+        "output": "HABILITADO"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI11",
+    "title": "Despegue seguro del dron",
+    "topic": "Si / Entonces",
+    "difficulty": "Intermedio",
+    "statement": "Un dron puede despegar si tiene al menos 30% de batería Y la señal GPS está disponible. El GPS se representa con 1 si está disponible y 0 si no. Muestra DESPEGUE AUTORIZADO o DESPEGUE BLOQUEADO.",
+    "input": "Batería y estado del GPS.",
+    "output": "DESPEGUE AUTORIZADO o DESPEGUE BLOQUEADO.",
+    "examples": [
+      {
+        "input": "45\n1",
+        "output": "DESPEGUE AUTORIZADO"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir bateria, gps Como Entero\n    Leer bateria\n    Leer gps\n\n    // Usa un operador lógico\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "30\n1",
+        "output": "DESPEGUE AUTORIZADO"
+      },
+      {
+        "input": "29\n1",
+        "output": "DESPEGUE BLOQUEADO"
+      },
+      {
+        "input": "80\n0",
+        "output": "DESPEGUE BLOQUEADO"
+      },
+      {
+        "input": "100\n1",
+        "output": "DESPEGUE AUTORIZADO"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI12",
+    "title": "Tarifa de domicilio",
+    "topic": "Si / Entonces",
+    "difficulty": "Intermedio",
+    "statement": "Calcula el costo de domicilio según la distancia: hasta 5 km cuesta 5000; de más de 5 hasta 15 km cuesta 10000; por encima de 15 km cuesta 18000. Muestra únicamente el valor.",
+    "input": "Distancia en kilómetros.",
+    "output": "Costo del domicilio.",
+    "examples": [
+      {
+        "input": "12",
+        "output": "10000"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir distancia, costo Como Real\n    Leer distancia\n\n    // Clasifica la distancia con Si anidados\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1",
+        "output": "5000"
+      },
+      {
+        "input": "5",
+        "output": "5000"
+      },
+      {
+        "input": "5.1",
+        "output": "10000"
+      },
+      {
+        "input": "15",
+        "output": "10000"
+      },
+      {
+        "input": "15.1",
+        "output": "18000"
+      },
+      {
+        "input": "50",
+        "output": "18000"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI13",
+    "title": "Validación de credenciales",
+    "topic": "Si / Entonces",
+    "difficulty": "Intermedio",
+    "statement": "Un panel técnico acepta únicamente el código 8432 y el PIN 917. Si ambos valores son correctos muestra ACCESO CONCEDIDO; en cualquier otro caso muestra CREDENCIALES INVALIDAS.",
+    "input": "Código y PIN, ambos enteros.",
+    "output": "ACCESO CONCEDIDO o CREDENCIALES INVALIDAS.",
+    "examples": [
+      {
+        "input": "8432\n917",
+        "output": "ACCESO CONCEDIDO"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir codigo, pin Como Entero\n    Leer codigo\n    Leer pin\n\n    // Valida ambas credenciales\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "8432\n917",
+        "output": "ACCESO CONCEDIDO"
+      },
+      {
+        "input": "8432\n916",
+        "output": "CREDENCIALES INVALIDAS"
+      },
+      {
+        "input": "1000\n917",
+        "output": "CREDENCIALES INVALIDAS"
+      },
+      {
+        "input": "0\n0",
+        "output": "CREDENCIALES INVALIDAS"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI14",
+    "title": "Modo de velocidad",
+    "topic": "Si / Entonces",
+    "difficulty": "Intermedio",
+    "statement": "Clasifica la velocidad de un vehículo autónomo: hasta 30 = LENTA; de más de 30 hasta 60 = MEDIA; más de 60 = ALTA.",
+    "input": "Velocidad numérica.",
+    "output": "LENTA, MEDIA o ALTA.",
+    "examples": [
+      {
+        "input": "52",
+        "output": "MEDIA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir velocidad Como Real\n    Leer velocidad\n\n    // Usa decisiones encadenadas\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "0",
+        "output": "LENTA"
+      },
+      {
+        "input": "30",
+        "output": "LENTA"
+      },
+      {
+        "input": "30.1",
+        "output": "MEDIA"
+      },
+      {
+        "input": "60",
+        "output": "MEDIA"
+      },
+      {
+        "input": "60.1",
+        "output": "ALTA"
+      },
+      {
+        "input": "120",
+        "output": "ALTA"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI15",
+    "title": "Tarifa por grupo de edad",
+    "topic": "Si / Entonces",
+    "difficulty": "Intermedio",
+    "statement": "Clasifica una entrada a un parque: menor de 12 años = INFANTIL; 60 años o más = MAYOR; cualquier otra edad = GENERAL.",
+    "input": "Edad en años.",
+    "output": "INFANTIL, MAYOR o GENERAL.",
+    "examples": [
+      {
+        "input": "65",
+        "output": "MAYOR"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir edad Como Entero\n    Leer edad\n\n    // Clasifica la tarifa\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "5",
+        "output": "INFANTIL"
+      },
+      {
+        "input": "11",
+        "output": "INFANTIL"
+      },
+      {
+        "input": "12",
+        "output": "GENERAL"
+      },
+      {
+        "input": "59",
+        "output": "GENERAL"
+      },
+      {
+        "input": "60",
+        "output": "MAYOR"
+      },
+      {
+        "input": "90",
+        "output": "MAYOR"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI16",
+    "title": "Protección de maquinaria",
+    "topic": "Si / Entonces",
+    "difficulty": "Intermedio",
+    "statement": "Una máquina debe detenerse si la temperatura supera 80 °C O si la vibración supera 70 unidades. Muestra DETENER MAQUINA o OPERACION NORMAL.",
+    "input": "Temperatura y nivel de vibración.",
+    "output": "DETENER MAQUINA u OPERACION NORMAL.",
+    "examples": [
+      {
+        "input": "82\n40",
+        "output": "DETENER MAQUINA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir temperatura, vibracion Como Real\n    Leer temperatura\n    Leer vibracion\n\n    // Usa el operador O\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "80\n70",
+        "output": "OPERACION NORMAL"
+      },
+      {
+        "input": "81\n20",
+        "output": "DETENER MAQUINA"
+      },
+      {
+        "input": "40\n71",
+        "output": "DETENER MAQUINA"
+      },
+      {
+        "input": "90\n90",
+        "output": "DETENER MAQUINA"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI17",
+    "title": "Preselección de beca",
+    "topic": "Si / Entonces",
+    "difficulty": "Intermedio",
+    "statement": "Un estudiante es preseleccionado si tiene promedio de 4.5 o más Y máximo 2 inasistencias. Muestra ELEGIBLE o NO ELEGIBLE.",
+    "input": "Promedio e inasistencias.",
+    "output": "ELEGIBLE o NO ELEGIBLE.",
+    "examples": [
+      {
+        "input": "4.7\n1",
+        "output": "ELEGIBLE"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir promedio Como Real\n    Definir faltas Como Entero\n    Leer promedio\n    Leer faltas\n\n    // Evalúa los dos requisitos\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "4.5\n2",
+        "output": "ELEGIBLE"
+      },
+      {
+        "input": "4.49\n0",
+        "output": "NO ELEGIBLE"
+      },
+      {
+        "input": "5\n3",
+        "output": "NO ELEGIBLE"
+      },
+      {
+        "input": "4.9\n1",
+        "output": "ELEGIBLE"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI18",
+    "title": "Ascensor inteligente",
+    "topic": "Si / Entonces",
+    "difficulty": "Intermedio",
+    "statement": "Un ascensor permite el movimiento si el peso total es máximo 600 kg Y viajan máximo 8 personas. Muestra ASCENSOR HABILITADO o SOBRECARGA.",
+    "input": "Peso total y número de personas.",
+    "output": "ASCENSOR HABILITADO o SOBRECARGA.",
+    "examples": [
+      {
+        "input": "520\n7",
+        "output": "ASCENSOR HABILITADO"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir peso Como Real\n    Definir personas Como Entero\n    Leer peso\n    Leer personas\n\n    // Valida ambos límites\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "600\n8",
+        "output": "ASCENSOR HABILITADO"
+      },
+      {
+        "input": "601\n3",
+        "output": "SOBRECARGA"
+      },
+      {
+        "input": "400\n9",
+        "output": "SOBRECARGA"
+      },
+      {
+        "input": "350\n5",
+        "output": "ASCENSOR HABILITADO"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI19",
+    "title": "Estado del jugador",
+    "topic": "Si / Entonces",
+    "difficulty": "Intermedio",
+    "statement": "Según los puntos de vida de un personaje: 0 o menos = GAME OVER; de 1 a 20 = PELIGRO; más de 20 = ESTABLE.",
+    "input": "Puntos de vida.",
+    "output": "GAME OVER, PELIGRO o ESTABLE.",
+    "examples": [
+      {
+        "input": "12",
+        "output": "PELIGRO"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir vida Como Entero\n    Leer vida\n\n    // Clasifica el estado del jugador\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "-3",
+        "output": "GAME OVER"
+      },
+      {
+        "input": "0",
+        "output": "GAME OVER"
+      },
+      {
+        "input": "1",
+        "output": "PELIGRO"
+      },
+      {
+        "input": "20",
+        "output": "PELIGRO"
+      },
+      {
+        "input": "21",
+        "output": "ESTABLE"
+      },
+      {
+        "input": "100",
+        "output": "ESTABLE"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI20",
+    "title": "Calidad de conexión",
+    "topic": "Si / Entonces",
+    "difficulty": "Intermedio",
+    "statement": "Clasifica la latencia de una conexión: menos de 50 ms = EXCELENTE; de 50 a 100 ms inclusive = ACEPTABLE; más de 100 ms = DEFICIENTE.",
+    "input": "Latencia en milisegundos.",
+    "output": "EXCELENTE, ACEPTABLE o DEFICIENTE.",
+    "examples": [
+      {
+        "input": "72",
+        "output": "ACEPTABLE"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir latencia Como Real\n    Leer latencia\n\n    // Clasifica la conexión\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "10",
+        "output": "EXCELENTE"
+      },
+      {
+        "input": "49.9",
+        "output": "EXCELENTE"
+      },
+      {
+        "input": "50",
+        "output": "ACEPTABLE"
+      },
+      {
+        "input": "100",
+        "output": "ACEPTABLE"
+      },
+      {
+        "input": "100.1",
+        "output": "DEFICIENTE"
+      },
+      {
+        "input": "350",
+        "output": "DEFICIENTE"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI21",
+    "title": "Riesgo de conductor",
+    "topic": "Si / Entonces",
+    "difficulty": "Avanzado",
+    "statement": "Clasifica el riesgo de un conductor. Si tiene 3 o más accidentes, el riesgo es ALTO. Si no, cuando es menor de 25 años y tiene al menos 1 accidente, el riesgo es MEDIO. En cualquier otro caso es BAJO.",
+    "input": "Edad y número de accidentes.",
+    "output": "ALTO, MEDIO o BAJO.",
+    "examples": [
+      {
+        "input": "22\n1",
+        "output": "MEDIO"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir edad, accidentes Como Entero\n    Leer edad\n    Leer accidentes\n\n    // Prioriza correctamente las reglas\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "40\n3",
+        "output": "ALTO"
+      },
+      {
+        "input": "20\n4",
+        "output": "ALTO"
+      },
+      {
+        "input": "22\n1",
+        "output": "MEDIO"
+      },
+      {
+        "input": "24\n2",
+        "output": "MEDIO"
+      },
+      {
+        "input": "25\n1",
+        "output": "BAJO"
+      },
+      {
+        "input": "50\n0",
+        "output": "BAJO"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI22",
+    "title": "Semáforo adaptativo",
+    "topic": "Si / Entonces",
+    "difficulty": "Avanzado",
+    "statement": "Un semáforo recibe dos datos: emergencia (1 sí, 0 no) y congestión de 0 a 100. Si hay emergencia muestra PRIORIDAD EMERGENCIA. Si no hay emergencia: congestión >=80 muestra ROJO EXTENDIDO; congestión >=50 muestra AMARILLO PREVENTIVO; en otro caso muestra FLUJO NORMAL.",
+    "input": "Indicador de emergencia y porcentaje de congestión.",
+    "output": "Uno de los cuatro estados definidos.",
+    "examples": [
+      {
+        "input": "0\n85",
+        "output": "ROJO EXTENDIDO"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir emergencia, congestion Como Entero\n    Leer emergencia\n    Leer congestion\n\n    // La emergencia tiene prioridad sobre todo\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n10",
+        "output": "PRIORIDAD EMERGENCIA"
+      },
+      {
+        "input": "1\n100",
+        "output": "PRIORIDAD EMERGENCIA"
+      },
+      {
+        "input": "0\n80",
+        "output": "ROJO EXTENDIDO"
+      },
+      {
+        "input": "0\n79",
+        "output": "AMARILLO PREVENTIVO"
+      },
+      {
+        "input": "0\n50",
+        "output": "AMARILLO PREVENTIVO"
+      },
+      {
+        "input": "0\n20",
+        "output": "FLUJO NORMAL"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI23",
+    "title": "Autorización de misión",
+    "topic": "Si / Entonces",
+    "difficulty": "Avanzado",
+    "statement": "Un dron requiere batería >=50, GPS disponible (1) y viento <=20 para iniciar misión. Si todo se cumple muestra MISION AUTORIZADA. Si falla, informa una sola causa con esta prioridad: BATERIA INSUFICIENTE, SIN GPS, VIENTO PELIGROSO.",
+    "input": "Batería, GPS y velocidad del viento.",
+    "output": "Estado de autorización o causa prioritaria.",
+    "examples": [
+      {
+        "input": "70\n1\n15",
+        "output": "MISION AUTORIZADA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir bateria, gps Como Entero\n    Definir viento Como Real\n    Leer bateria\n    Leer gps\n    Leer viento\n\n    // Usa decisiones anidadas respetando la prioridad\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "70\n1\n15",
+        "output": "MISION AUTORIZADA"
+      },
+      {
+        "input": "49\n0\n50",
+        "output": "BATERIA INSUFICIENTE"
+      },
+      {
+        "input": "80\n0\n10",
+        "output": "SIN GPS"
+      },
+      {
+        "input": "80\n1\n21",
+        "output": "VIENTO PELIGROSO"
+      },
+      {
+        "input": "50\n1\n20",
+        "output": "MISION AUTORIZADA"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI24",
+    "title": "Preaprobación de crédito",
+    "topic": "Si / Entonces",
+    "difficulty": "Avanzado",
+    "statement": "Un crédito se preaprueba si el ingreso mensual es al menos 2.000.000, el porcentaje de endeudamiento es máximo 40 y el puntaje financiero es al menos 650. Muestra CREDITO PREAPROBADO o CREDITO RECHAZADO.",
+    "input": "Ingreso mensual, porcentaje de endeudamiento y puntaje.",
+    "output": "CREDITO PREAPROBADO o CREDITO RECHAZADO.",
+    "examples": [
+      {
+        "input": "3500000\n28\n710",
+        "output": "CREDITO PREAPROBADO"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir ingreso, endeudamiento, puntaje Como Real\n    Leer ingreso\n    Leer endeudamiento\n    Leer puntaje\n\n    // Evalúa simultáneamente los tres requisitos\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "2000000\n40\n650",
+        "output": "CREDITO PREAPROBADO"
+      },
+      {
+        "input": "1999999\n10\n800",
+        "output": "CREDITO RECHAZADO"
+      },
+      {
+        "input": "5000000\n41\n800",
+        "output": "CREDITO RECHAZADO"
+      },
+      {
+        "input": "5000000\n20\n649",
+        "output": "CREDITO RECHAZADO"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI25",
+    "title": "Motor antifraude",
+    "topic": "Si / Entonces",
+    "difficulty": "Avanzado",
+    "statement": "Un sistema recibe intentos fallidos, dispositivo nuevo (1/0) y país de riesgo (1/0). Debe mostrar BLOQUEAR si hay 5 o más intentos fallidos, o si simultáneamente el dispositivo es nuevo y el país es de riesgo. Si no se bloquea pero el dispositivo es nuevo, muestra VERIFICAR. En otro caso muestra PERMITIR.",
+    "input": "Intentos fallidos, dispositivo nuevo y país de riesgo.",
+    "output": "BLOQUEAR, VERIFICAR o PERMITIR.",
+    "examples": [
+      {
+        "input": "1\n1\n0",
+        "output": "VERIFICAR"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir intentos, dispositivoNuevo, paisRiesgo Como Entero\n    Leer intentos\n    Leer dispositivoNuevo\n    Leer paisRiesgo\n\n    // Combina Y, O y decisiones encadenadas\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "5\n0\n0",
+        "output": "BLOQUEAR"
+      },
+      {
+        "input": "0\n1\n1",
+        "output": "BLOQUEAR"
+      },
+      {
+        "input": "4\n1\n0",
+        "output": "VERIFICAR"
+      },
+      {
+        "input": "4\n0\n1",
+        "output": "PERMITIR"
+      },
+      {
+        "input": "8\n1\n0",
+        "output": "BLOQUEAR"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI26",
+    "title": "Triage digital",
+    "topic": "Si / Entonces",
+    "difficulty": "Avanzado",
+    "statement": "Un sistema de triage recibe saturación de oxígeno, temperatura y frecuencia cardiaca. Si la saturación es menor a 90 muestra PRIORIDAD 1. De lo contrario, si la temperatura es al menos 39 Y la frecuencia cardiaca supera 120, muestra PRIORIDAD 2. En cualquier otro caso muestra PRIORIDAD 3.",
+    "input": "Saturación, temperatura y frecuencia cardiaca.",
+    "output": "PRIORIDAD 1, PRIORIDAD 2 o PRIORIDAD 3.",
+    "examples": [
+      {
+        "input": "95\n39.5\n130",
+        "output": "PRIORIDAD 2"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir saturacion, temperatura, frecuencia Como Real\n    Leer saturacion\n    Leer temperatura\n    Leer frecuencia\n\n    // Respeta la prioridad clínica indicada\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "89\n36\n70",
+        "output": "PRIORIDAD 1"
+      },
+      {
+        "input": "80\n40\n150",
+        "output": "PRIORIDAD 1"
+      },
+      {
+        "input": "95\n39\n121",
+        "output": "PRIORIDAD 2"
+      },
+      {
+        "input": "95\n38.9\n150",
+        "output": "PRIORIDAD 3"
+      },
+      {
+        "input": "98\n36.5\n80",
+        "output": "PRIORIDAD 3"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI27",
+    "title": "Cobro de parqueadero",
+    "topic": "Si / Entonces",
+    "difficulty": "Avanzado",
+    "statement": "Un parqueadero recibe horas utilizadas y si perdió el tiquete (1 sí, 0 no). Si perdió el tiquete cobra 50000 sin importar las horas. Si no: hasta 2 horas cobra 5000; hasta 5 horas cobra 12000; más de 5 cobra 20000. Muestra únicamente el valor.",
+    "input": "Horas y bandera de tiquete perdido.",
+    "output": "Valor a pagar.",
+    "examples": [
+      {
+        "input": "4\n0",
+        "output": "12000"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir horas, perdido Como Entero\n    Definir total Como Real\n    Leer horas\n    Leer perdido\n\n    // El tiquete perdido tiene prioridad\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n0",
+        "output": "5000"
+      },
+      {
+        "input": "2\n0",
+        "output": "5000"
+      },
+      {
+        "input": "3\n0",
+        "output": "12000"
+      },
+      {
+        "input": "5\n0",
+        "output": "12000"
+      },
+      {
+        "input": "6\n0",
+        "output": "20000"
+      },
+      {
+        "input": "1\n1",
+        "output": "50000"
+      },
+      {
+        "input": "20\n1",
+        "output": "50000"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI28",
+    "title": "Nivel en torneo",
+    "topic": "Si / Entonces",
+    "difficulty": "Avanzado",
+    "statement": "Lee victorias y empates. Calcula puntos = victorias*3 + empates. Si obtiene 18 o más muestra LIGA ORO; de 12 a 17 muestra LIGA PLATA; de 6 a 11 muestra LIGA BRONCE; menos de 6 muestra LIGA INICIAL.",
+    "input": "Victorias y empates.",
+    "output": "La liga obtenida.",
+    "examples": [
+      {
+        "input": "4\n2",
+        "output": "LIGA PLATA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir victorias, empates, puntos Como Entero\n    Leer victorias\n    Leer empates\n\n    // Calcula puntos y clasifica al jugador\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "6\n0",
+        "output": "LIGA ORO"
+      },
+      {
+        "input": "4\n0",
+        "output": "LIGA PLATA"
+      },
+      {
+        "input": "3\n2",
+        "output": "LIGA BRONCE"
+      },
+      {
+        "input": "1\n1",
+        "output": "LIGA INICIAL"
+      },
+      {
+        "input": "5\n3",
+        "output": "LIGA ORO"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI29",
+    "title": "Envío inteligente",
+    "topic": "Si / Entonces",
+    "difficulty": "Avanzado",
+    "statement": "Una tienda ofrece ENVIO GRATIS si la compra es de al menos 200000. También lo ofrece a clientes premium (1) cuando compran al menos 100000. En cualquier otro caso muestra ENVIO COBRADO.",
+    "input": "Valor de compra y bandera premium (1/0).",
+    "output": "ENVIO GRATIS o ENVIO COBRADO.",
+    "examples": [
+      {
+        "input": "120000\n1",
+        "output": "ENVIO GRATIS"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir compra Como Real\n    Definir premium Como Entero\n    Leer compra\n    Leer premium\n\n    // Combina las dos reglas de envío\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "200000\n0",
+        "output": "ENVIO GRATIS"
+      },
+      {
+        "input": "100000\n1",
+        "output": "ENVIO GRATIS"
+      },
+      {
+        "input": "99999\n1",
+        "output": "ENVIO COBRADO"
+      },
+      {
+        "input": "150000\n0",
+        "output": "ENVIO COBRADO"
+      },
+      {
+        "input": "500000\n1",
+        "output": "ENVIO GRATIS"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SI30",
+    "title": "Resultado académico final",
+    "topic": "Si / Entonces",
+    "difficulty": "Avanzado",
+    "statement": "Lee nota final, porcentaje de inasistencia y nota de recuperación. Si la nota final es al menos 3.0 muestra APROBADO. Si la nota es menor, pero la inasistencia supera 25, muestra NO HABILITADO. Si puede recuperar y la recuperación es al menos 3.0 muestra APROBADO POR RECUPERACION; en otro caso muestra REPROBADO.",
+    "input": "Nota final, porcentaje de inasistencia y nota de recuperación.",
+    "output": "Uno de los cuatro estados académicos.",
+    "examples": [
+      {
+        "input": "2.8\n10\n3.4",
+        "output": "APROBADO POR RECUPERACION"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir nota, inasistencia, recuperacion Como Real\n    Leer nota\n    Leer inasistencia\n    Leer recuperacion\n\n    // Aplica las reglas en el orden indicado\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "3\n90\n0",
+        "output": "APROBADO"
+      },
+      {
+        "input": "2.9\n26\n5",
+        "output": "NO HABILITADO"
+      },
+      {
+        "input": "2.8\n10\n3",
+        "output": "APROBADO POR RECUPERACION"
+      },
+      {
+        "input": "2.5\n10\n2.9",
+        "output": "REPROBADO"
+      },
+      {
+        "input": "4.2\n0\n0",
+        "output": "APROBADO"
+      }
+    ],
+    "required": [
+      "si"
+    ]
+  },
+  {
+    "id": "SEG01",
+    "title": "Control remoto del robot",
+    "topic": "Segun",
+    "difficulty": "Básico",
+    "statement": "Un robot recibe un comando numérico: 1 AVANZAR, 2 RETROCEDER, 3 GIRAR IZQUIERDA, 4 GIRAR DERECHA. Cualquier otro valor muestra COMANDO INVALIDO.",
+    "input": "Un entero: comando.",
+    "output": "La acción correspondiente.",
+    "examples": [
+      {
+        "input": "3",
+        "output": "GIRAR IZQUIERDA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir comando Como Entero\n    Leer comando\n\n    Segun comando Hacer\n        // Completa los casos\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1",
+        "output": "AVANZAR"
+      },
+      {
+        "input": "2",
+        "output": "RETROCEDER"
+      },
+      {
+        "input": "3",
+        "output": "GIRAR IZQUIERDA"
+      },
+      {
+        "input": "4",
+        "output": "GIRAR DERECHA"
+      },
+      {
+        "input": "9",
+        "output": "COMANDO INVALIDO"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG02",
+    "title": "Día operativo",
+    "topic": "Segun",
+    "difficulty": "Básico",
+    "statement": "Convierte un número del 1 al 7 en un día: 1 LUNES, 2 MARTES, 3 MIERCOLES, 4 JUEVES, 5 VIERNES, 6 SABADO, 7 DOMINGO. Otro número muestra DIA INVALIDO.",
+    "input": "Número del día.",
+    "output": "Nombre del día.",
+    "examples": [
+      {
+        "input": "5",
+        "output": "VIERNES"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir dia Como Entero\n    Leer dia\n\n    Segun dia Hacer\n        // Completa\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1",
+        "output": "LUNES"
+      },
+      {
+        "input": "3",
+        "output": "MIERCOLES"
+      },
+      {
+        "input": "5",
+        "output": "VIERNES"
+      },
+      {
+        "input": "7",
+        "output": "DOMINGO"
+      },
+      {
+        "input": "0",
+        "output": "DIA INVALIDO"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG03",
+    "title": "Estado del semáforo",
+    "topic": "Segun",
+    "difficulty": "Básico",
+    "statement": "El controlador usa códigos: 1 ROJO, 2 AMARILLO, 3 VERDE. Cualquier otro código muestra ESTADO INVALIDO.",
+    "input": "Código entero.",
+    "output": "ROJO, AMARILLO, VERDE o ESTADO INVALIDO.",
+    "examples": [
+      {
+        "input": "2",
+        "output": "AMARILLO"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir estado Como Entero\n    Leer estado\n\n    Segun estado Hacer\n        // Completa\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1",
+        "output": "ROJO"
+      },
+      {
+        "input": "2",
+        "output": "AMARILLO"
+      },
+      {
+        "input": "3",
+        "output": "VERDE"
+      },
+      {
+        "input": "4",
+        "output": "ESTADO INVALIDO"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG04",
+    "title": "Máquina dispensadora",
+    "topic": "Segun",
+    "difficulty": "Básico",
+    "statement": "Una máquina vende: 1 AGUA, 2 CAFE, 3 JUGO, 4 TE. Muestra el nombre del producto. Cualquier otro código muestra PRODUCTO INVALIDO.",
+    "input": "Código de producto.",
+    "output": "Nombre del producto o PRODUCTO INVALIDO.",
+    "examples": [
+      {
+        "input": "2",
+        "output": "CAFE"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir opcion Como Entero\n    Leer opcion\n\n    Segun opcion Hacer\n        // Completa\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1",
+        "output": "AGUA"
+      },
+      {
+        "input": "2",
+        "output": "CAFE"
+      },
+      {
+        "input": "3",
+        "output": "JUGO"
+      },
+      {
+        "input": "4",
+        "output": "TE"
+      },
+      {
+        "input": "7",
+        "output": "PRODUCTO INVALIDO"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG05",
+    "title": "Menú de videojuego",
+    "topic": "Segun",
+    "difficulty": "Básico",
+    "statement": "Un videojuego muestra las opciones 1 JUGAR, 2 CONFIGURACION, 3 CREDITOS, 4 SALIR. Muestra el texto correspondiente o OPCION INVALIDA.",
+    "input": "Opción del menú.",
+    "output": "Acción seleccionada.",
+    "examples": [
+      {
+        "input": "1",
+        "output": "JUGAR"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir opcion Como Entero\n    Leer opcion\n\n    Segun opcion Hacer\n        // Completa el menú\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1",
+        "output": "JUGAR"
+      },
+      {
+        "input": "2",
+        "output": "CONFIGURACION"
+      },
+      {
+        "input": "3",
+        "output": "CREDITOS"
+      },
+      {
+        "input": "4",
+        "output": "SALIR"
+      },
+      {
+        "input": "10",
+        "output": "OPCION INVALIDA"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG06",
+    "title": "Modo de transporte",
+    "topic": "Segun",
+    "difficulty": "Básico",
+    "statement": "Códigos de movilidad: 1 BUS, 2 TAXI, 3 BICICLETA, 4 CAMINANDO. Para otro valor muestra TRANSPORTE INVALIDO.",
+    "input": "Código de transporte.",
+    "output": "Nombre del transporte.",
+    "examples": [
+      {
+        "input": "3",
+        "output": "BICICLETA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir tipo Como Entero\n    Leer tipo\n\n    Segun tipo Hacer\n        // Completa\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1",
+        "output": "BUS"
+      },
+      {
+        "input": "2",
+        "output": "TAXI"
+      },
+      {
+        "input": "3",
+        "output": "BICICLETA"
+      },
+      {
+        "input": "4",
+        "output": "CAMINANDO"
+      },
+      {
+        "input": "5",
+        "output": "TRANSPORTE INVALIDO"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG07",
+    "title": "Calculadora por menú",
+    "topic": "Segun",
+    "difficulty": "Básico",
+    "statement": "Lee dos números y una operación: 1 sumar, 2 restar, 3 multiplicar. Muestra el resultado. Para otra operación muestra OPERACION INVALIDA.",
+    "input": "Número A, número B y código de operación.",
+    "output": "Resultado numérico u OPERACION INVALIDA.",
+    "examples": [
+      {
+        "input": "8\n3\n2",
+        "output": "5"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir a, b, opcion Como Real\n    Leer a\n    Leer b\n    Leer opcion\n\n    Segun opcion Hacer\n        // 1 suma, 2 resta, 3 multiplicación\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "5\n4\n1",
+        "output": "9"
+      },
+      {
+        "input": "8\n3\n2",
+        "output": "5"
+      },
+      {
+        "input": "7\n6\n3",
+        "output": "42"
+      },
+      {
+        "input": "9\n2\n9",
+        "output": "OPERACION INVALIDA"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG08",
+    "title": "Código de emergencia",
+    "topic": "Segun",
+    "difficulty": "Básico",
+    "statement": "Un panel recibe 100 = INCENDIO, 200 = INUNDACION, 300 = FALLA ELECTRICA, 400 = EVACUACION. Otro código muestra CODIGO DESCONOCIDO.",
+    "input": "Código entero de emergencia.",
+    "output": "Descripción del evento.",
+    "examples": [
+      {
+        "input": "300",
+        "output": "FALLA ELECTRICA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir codigo Como Entero\n    Leer codigo\n\n    Segun codigo Hacer\n        // Completa\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "100",
+        "output": "INCENDIO"
+      },
+      {
+        "input": "200",
+        "output": "INUNDACION"
+      },
+      {
+        "input": "300",
+        "output": "FALLA ELECTRICA"
+      },
+      {
+        "input": "400",
+        "output": "EVACUACION"
+      },
+      {
+        "input": "999",
+        "output": "CODIGO DESCONOCIDO"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG09",
+    "title": "Trimestre del año",
+    "topic": "Segun",
+    "difficulty": "Básico",
+    "statement": "Recibe un número de trimestre: 1 PRIMER TRIMESTRE, 2 SEGUNDO TRIMESTRE, 3 TERCER TRIMESTRE, 4 CUARTO TRIMESTRE. Otro valor muestra TRIMESTRE INVALIDO.",
+    "input": "Número de trimestre.",
+    "output": "Texto del trimestre.",
+    "examples": [
+      {
+        "input": "4",
+        "output": "CUARTO TRIMESTRE"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir trimestre Como Entero\n    Leer trimestre\n\n    Segun trimestre Hacer\n        // Completa\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1",
+        "output": "PRIMER TRIMESTRE"
+      },
+      {
+        "input": "2",
+        "output": "SEGUNDO TRIMESTRE"
+      },
+      {
+        "input": "4",
+        "output": "CUARTO TRIMESTRE"
+      },
+      {
+        "input": "0",
+        "output": "TRIMESTRE INVALIDO"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG10",
+    "title": "Estado de una cuenta",
+    "topic": "Segun",
+    "difficulty": "Básico",
+    "statement": "Estados de cuenta: 0 INACTIVA, 1 ACTIVA, 2 SUSPENDIDA, 3 CERRADA. Cualquier otro valor muestra ESTADO INVALIDO.",
+    "input": "Código de estado.",
+    "output": "Estado de la cuenta.",
+    "examples": [
+      {
+        "input": "2",
+        "output": "SUSPENDIDA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir estado Como Entero\n    Leer estado\n\n    Segun estado Hacer\n        // Completa\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "0",
+        "output": "INACTIVA"
+      },
+      {
+        "input": "1",
+        "output": "ACTIVA"
+      },
+      {
+        "input": "2",
+        "output": "SUSPENDIDA"
+      },
+      {
+        "input": "3",
+        "output": "CERRADA"
+      },
+      {
+        "input": "5",
+        "output": "ESTADO INVALIDO"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG11",
+    "title": "Tarifa de parqueadero por vehículo",
+    "topic": "Segun",
+    "difficulty": "Intermedio",
+    "statement": "Lee tipo de vehículo y horas. Tipo 1 moto cuesta 2000 por hora; 2 automóvil cuesta 4000; 3 camioneta cuesta 6000. Muestra el total. Otro tipo muestra TIPO INVALIDO.",
+    "input": "Tipo de vehículo y horas.",
+    "output": "Total a pagar o TIPO INVALIDO.",
+    "examples": [
+      {
+        "input": "2\n3",
+        "output": "12000"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir tipo, horas, total Como Entero\n    Leer tipo\n    Leer horas\n\n    Segun tipo Hacer\n        // Calcula según el vehículo\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n2",
+        "output": "4000"
+      },
+      {
+        "input": "2\n3",
+        "output": "12000"
+      },
+      {
+        "input": "3\n4",
+        "output": "24000"
+      },
+      {
+        "input": "7\n5",
+        "output": "TIPO INVALIDO"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG12",
+    "title": "Entrada de cine",
+    "topic": "Segun",
+    "difficulty": "Intermedio",
+    "statement": "Una sala tiene tarifas por formato: 1 = 2D cuesta 12000, 2 = 3D cuesta 18000, 3 = IMAX cuesta 25000. Lee formato y cantidad de entradas y muestra el total. Otro formato muestra FORMATO INVALIDO.",
+    "input": "Formato y cantidad de entradas.",
+    "output": "Valor total o FORMATO INVALIDO.",
+    "examples": [
+      {
+        "input": "3\n2",
+        "output": "50000"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir formato, cantidad, total Como Entero\n    Leer formato\n    Leer cantidad\n\n    Segun formato Hacer\n        // Calcula el total\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n3",
+        "output": "36000"
+      },
+      {
+        "input": "2\n2",
+        "output": "36000"
+      },
+      {
+        "input": "3\n2",
+        "output": "50000"
+      },
+      {
+        "input": "8\n1",
+        "output": "FORMATO INVALIDO"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG13",
+    "title": "Pedido de cafetería",
+    "topic": "Segun",
+    "difficulty": "Intermedio",
+    "statement": "Una cafetería vende: 1 hamburguesa 15000, 2 pizza personal 12000, 3 ensalada 10000, 4 sandwich 9000. Lee producto y cantidad y muestra el valor total. Otro código muestra PRODUCTO INVALIDO.",
+    "input": "Código de producto y cantidad.",
+    "output": "Total o PRODUCTO INVALIDO.",
+    "examples": [
+      {
+        "input": "1\n2",
+        "output": "30000"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir producto, cantidad, total Como Entero\n    Leer producto\n    Leer cantidad\n\n    Segun producto Hacer\n        // Calcula el pedido\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n2",
+        "output": "30000"
+      },
+      {
+        "input": "2\n3",
+        "output": "36000"
+      },
+      {
+        "input": "3\n1",
+        "output": "10000"
+      },
+      {
+        "input": "4\n4",
+        "output": "36000"
+      },
+      {
+        "input": "9\n2",
+        "output": "PRODUCTO INVALIDO"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG14",
+    "title": "Envío por zona",
+    "topic": "Segun",
+    "difficulty": "Intermedio",
+    "statement": "Una transportadora cobra por kilogramo según zona: 1 local = 3000/kg, 2 regional = 5000/kg, 3 nacional = 8000/kg. Lee zona y peso, luego muestra el costo. Otra zona muestra ZONA INVALIDA.",
+    "input": "Zona y peso en kg.",
+    "output": "Costo o ZONA INVALIDA.",
+    "examples": [
+      {
+        "input": "2\n4",
+        "output": "20000"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir zona Como Entero\n    Definir peso, costo Como Real\n    Leer zona\n    Leer peso\n\n    Segun zona Hacer\n        // Calcula el envío\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n2",
+        "output": "6000"
+      },
+      {
+        "input": "2\n4",
+        "output": "20000"
+      },
+      {
+        "input": "3\n2.5",
+        "output": "20000"
+      },
+      {
+        "input": "5\n3",
+        "output": "ZONA INVALIDA"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG15",
+    "title": "Selección de personaje",
+    "topic": "Segun",
+    "difficulty": "Intermedio",
+    "statement": "En un juego: 1 GUERRERO tiene ataque 90, 2 MAGO 120, 3 ARQUERO 100, 4 TANQUE 70. Recibe el personaje y muestra únicamente su valor de ataque. Otro código muestra PERSONAJE INVALIDO.",
+    "input": "Código del personaje.",
+    "output": "Ataque o PERSONAJE INVALIDO.",
+    "examples": [
+      {
+        "input": "2",
+        "output": "120"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir personaje Como Entero\n    Leer personaje\n\n    Segun personaje Hacer\n        // Asigna el ataque\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1",
+        "output": "90"
+      },
+      {
+        "input": "2",
+        "output": "120"
+      },
+      {
+        "input": "3",
+        "output": "100"
+      },
+      {
+        "input": "4",
+        "output": "70"
+      },
+      {
+        "input": "0",
+        "output": "PERSONAJE INVALIDO"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG16",
+    "title": "Mesa de ayuda",
+    "topic": "Segun",
+    "difficulty": "Intermedio",
+    "statement": "Una mesa de ayuda clasifica solicitudes: 1 = SOPORTE TECNICO, 2 = FACTURACION, 3 = VENTAS, 4 = CANCELACIONES. Para otro valor muestra AREA NO DISPONIBLE.",
+    "input": "Opción seleccionada.",
+    "output": "Área asignada.",
+    "examples": [
+      {
+        "input": "4",
+        "output": "CANCELACIONES"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir opcion Como Entero\n    Leer opcion\n\n    Segun opcion Hacer\n        // Asigna el área\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1",
+        "output": "SOPORTE TECNICO"
+      },
+      {
+        "input": "2",
+        "output": "FACTURACION"
+      },
+      {
+        "input": "3",
+        "output": "VENTAS"
+      },
+      {
+        "input": "4",
+        "output": "CANCELACIONES"
+      },
+      {
+        "input": "6",
+        "output": "AREA NO DISPONIBLE"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG17",
+    "title": "Plan móvil",
+    "topic": "Segun",
+    "difficulty": "Intermedio",
+    "statement": "Lee un plan y minutos extra. Plan 1 cobra base 30000 + 100 por minuto extra; plan 2 base 50000 + 80 por minuto; plan 3 base 80000 + 50 por minuto. Muestra el total. Otro plan muestra PLAN INVALIDO.",
+    "input": "Código de plan y minutos extra.",
+    "output": "Total o PLAN INVALIDO.",
+    "examples": [
+      {
+        "input": "2\n100",
+        "output": "58000"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir plan, minutos Como Entero\n    Definir total Como Real\n    Leer plan\n    Leer minutos\n\n    Segun plan Hacer\n        // Calcula la factura\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n10",
+        "output": "31000"
+      },
+      {
+        "input": "2\n100",
+        "output": "58000"
+      },
+      {
+        "input": "3\n20",
+        "output": "81000"
+      },
+      {
+        "input": "9\n50",
+        "output": "PLAN INVALIDO"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG18",
+    "title": "Conversor de moneda",
+    "topic": "Segun",
+    "difficulty": "Intermedio",
+    "statement": "Convierte un valor en pesos usando tasas didácticas fijas: 1 USD divide entre 4000, 2 EUR divide entre 4400, 3 MXN divide entre 230. Muestra el resultado numérico. Otro código muestra MONEDA INVALIDA.",
+    "input": "Valor en pesos y código de moneda.",
+    "output": "Valor convertido o MONEDA INVALIDA.",
+    "examples": [
+      {
+        "input": "8000\n1",
+        "output": "2"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir pesos, resultado Como Real\n    Definir moneda Como Entero\n    Leer pesos\n    Leer moneda\n\n    Segun moneda Hacer\n        // Usa las tasas indicadas\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "8000\n1",
+        "output": "2"
+      },
+      {
+        "input": "8800\n2",
+        "output": "2"
+      },
+      {
+        "input": "4600\n3",
+        "output": "20"
+      },
+      {
+        "input": "10000\n9",
+        "output": "MONEDA INVALIDA"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG19",
+    "title": "Peaje por categoría",
+    "topic": "Segun",
+    "difficulty": "Intermedio",
+    "statement": "Un peaje cobra: categoría 1 = 11000, 2 = 18000, 3 = 26000, 4 = 34000. Lee categoría y número de pasos realizados y muestra el total acumulado. Otra categoría muestra CATEGORIA INVALIDA.",
+    "input": "Categoría y cantidad de pasos.",
+    "output": "Total o CATEGORIA INVALIDA.",
+    "examples": [
+      {
+        "input": "3\n2",
+        "output": "52000"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir categoria, pasos, total Como Entero\n    Leer categoria\n    Leer pasos\n\n    Segun categoria Hacer\n        // Calcula el total\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n1",
+        "output": "11000"
+      },
+      {
+        "input": "2\n3",
+        "output": "54000"
+      },
+      {
+        "input": "3\n2",
+        "output": "52000"
+      },
+      {
+        "input": "4\n2",
+        "output": "68000"
+      },
+      {
+        "input": "7\n2",
+        "output": "CATEGORIA INVALIDA"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG20",
+    "title": "Dispositivo de casa inteligente",
+    "topic": "Segun",
+    "difficulty": "Intermedio",
+    "statement": "Lee dispositivo y acción. Dispositivo 1 = LUZ, 2 = VENTILADOR, 3 = ALARMA. Acción 1 significa encender/activar y 0 apagar/desactivar. Debes mostrar LUZ ENCENDIDA/APAGADA, VENTILADOR ENCENDIDO/APAGADO o ALARMA ACTIVADA/DESACTIVADA. Otro dispositivo muestra DISPOSITIVO INVALIDO.",
+    "input": "Código de dispositivo y acción 1/0.",
+    "output": "Estado resultante.",
+    "examples": [
+      {
+        "input": "3\n1",
+        "output": "ALARMA ACTIVADA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir dispositivo, accion Como Entero\n    Leer dispositivo\n    Leer accion\n\n    Segun dispositivo Hacer\n        // Dentro de cada caso puedes usar Si\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n1",
+        "output": "LUZ ENCENDIDA"
+      },
+      {
+        "input": "1\n0",
+        "output": "LUZ APAGADA"
+      },
+      {
+        "input": "2\n1",
+        "output": "VENTILADOR ENCENDIDO"
+      },
+      {
+        "input": "2\n0",
+        "output": "VENTILADOR APAGADO"
+      },
+      {
+        "input": "3\n1",
+        "output": "ALARMA ACTIVADA"
+      },
+      {
+        "input": "3\n0",
+        "output": "ALARMA DESACTIVADA"
+      },
+      {
+        "input": "8\n1",
+        "output": "DISPOSITIVO INVALIDO"
+      }
+    ],
+    "required": [
+      "segun",
+      "si"
+    ]
+  },
+  {
+    "id": "SEG21",
+    "title": "Cajero automático",
+    "topic": "Segun",
+    "difficulty": "Avanzado",
+    "statement": "Lee saldo, operación y valor. Operación 1 CONSULTAR: muestra el saldo. Operación 2 RETIRAR: si el valor no supera el saldo, muestra el nuevo saldo; si lo supera, FONDOS INSUFICIENTES. Operación 3 DEPOSITAR: muestra el nuevo saldo. Otro código muestra OPERACION INVALIDA.",
+    "input": "Saldo, código de operación y valor.",
+    "output": "Resultado de la operación.",
+    "examples": [
+      {
+        "input": "100000\n2\n30000",
+        "output": "70000"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir saldo, valor Como Real\n    Definir operacion Como Entero\n    Leer saldo\n    Leer operacion\n    Leer valor\n\n    Segun operacion Hacer\n        // Algunas operaciones requieren una decisión adicional\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "100000\n1\n0",
+        "output": "100000"
+      },
+      {
+        "input": "100000\n2\n30000",
+        "output": "70000"
+      },
+      {
+        "input": "50000\n2\n60000",
+        "output": "FONDOS INSUFICIENTES"
+      },
+      {
+        "input": "90000\n3\n10000",
+        "output": "100000"
+      },
+      {
+        "input": "90000\n8\n10000",
+        "output": "OPERACION INVALIDA"
+      }
+    ],
+    "required": [
+      "segun",
+      "si"
+    ]
+  },
+  {
+    "id": "SEG22",
+    "title": "Despacho por prioridad",
+    "topic": "Segun",
+    "difficulty": "Avanzado",
+    "statement": "Lee zona (1 local, 2 regional, 3 nacional), peso y prioridad (1 urgente, 0 normal). Costos base por kg: 3000, 5000 y 8000. Si es urgente suma 10000 al total. Muestra el total; otra zona muestra ZONA INVALIDA.",
+    "input": "Zona, peso y prioridad.",
+    "output": "Costo total o ZONA INVALIDA.",
+    "examples": [
+      {
+        "input": "2\n4\n1",
+        "output": "30000"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir zona, prioridad Como Entero\n    Definir peso, total Como Real\n    Leer zona\n    Leer peso\n    Leer prioridad\n\n    Segun zona Hacer\n        // Calcula costo base y recargo urgente\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n2\n0",
+        "output": "6000"
+      },
+      {
+        "input": "1\n2\n1",
+        "output": "16000"
+      },
+      {
+        "input": "2\n4\n1",
+        "output": "30000"
+      },
+      {
+        "input": "3\n2\n0",
+        "output": "16000"
+      },
+      {
+        "input": "9\n2\n1",
+        "output": "ZONA INVALIDA"
+      }
+    ],
+    "required": [
+      "segun",
+      "si"
+    ]
+  },
+  {
+    "id": "SEG23",
+    "title": "Consulta médica",
+    "topic": "Segun",
+    "difficulty": "Avanzado",
+    "statement": "Una clínica maneja especialidades: 1 medicina general cuesta 50000, 2 pediatría 70000, 3 cardiología 120000. Si el paciente tiene convenio (1), paga la mitad. Muestra el valor final. Otra especialidad muestra ESPECIALIDAD INVALIDA.",
+    "input": "Especialidad y convenio 1/0.",
+    "output": "Valor final o ESPECIALIDAD INVALIDA.",
+    "examples": [
+      {
+        "input": "3\n1",
+        "output": "60000"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir especialidad, convenio Como Entero\n    Definir total Como Real\n    Leer especialidad\n    Leer convenio\n\n    Segun especialidad Hacer\n        // Aplica el convenio dentro del caso\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n0",
+        "output": "50000"
+      },
+      {
+        "input": "1\n1",
+        "output": "25000"
+      },
+      {
+        "input": "2\n1",
+        "output": "35000"
+      },
+      {
+        "input": "3\n1",
+        "output": "60000"
+      },
+      {
+        "input": "3\n0",
+        "output": "120000"
+      },
+      {
+        "input": "8\n1",
+        "output": "ESPECIALIDAD INVALIDA"
+      }
+    ],
+    "required": [
+      "segun",
+      "si"
+    ]
+  },
+  {
+    "id": "SEG24",
+    "title": "Consola de mantenimiento",
+    "topic": "Segun",
+    "difficulty": "Avanzado",
+    "statement": "Una consola recibe comando y confirmación. Comando 1 REINICIAR, 2 APAGAR, 3 ACTUALIZAR. Cada acción solo se ejecuta si confirmación = 1; en caso contrario muestra OPERACION CANCELADA. Otro comando muestra COMANDO INVALIDO.",
+    "input": "Comando y confirmación 1/0.",
+    "output": "Acción ejecutada, OPERACION CANCELADA o COMANDO INVALIDO.",
+    "examples": [
+      {
+        "input": "3\n1",
+        "output": "ACTUALIZANDO"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir comando, confirmar Como Entero\n    Leer comando\n    Leer confirmar\n\n    Segun comando Hacer\n        // Cada comando debe validar la confirmación\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n1",
+        "output": "REINICIANDO"
+      },
+      {
+        "input": "1\n0",
+        "output": "OPERACION CANCELADA"
+      },
+      {
+        "input": "2\n1",
+        "output": "APAGANDO"
+      },
+      {
+        "input": "2\n0",
+        "output": "OPERACION CANCELADA"
+      },
+      {
+        "input": "3\n1",
+        "output": "ACTUALIZANDO"
+      },
+      {
+        "input": "3\n0",
+        "output": "OPERACION CANCELADA"
+      },
+      {
+        "input": "9\n1",
+        "output": "COMANDO INVALIDO"
+      }
+    ],
+    "required": [
+      "segun",
+      "si"
+    ]
+  },
+  {
+    "id": "SEG25",
+    "title": "Estrategia de boxes",
+    "topic": "Segun",
+    "difficulty": "Avanzado",
+    "statement": "En una carrera, clima 1 SECO, 2 LLUVIA, 3 TORMENTA. También se recibe desgaste de neumáticos de 0 a 100. En SECO: si desgaste >=80 muestra CAMBIAR BLANDOS, si no CONTINUAR. En LLUVIA: muestra CAMBIAR LLUVIA. En TORMENTA: muestra ENTRAR A BOXES. Otro clima muestra CLIMA INVALIDO.",
+    "input": "Código de clima y desgaste.",
+    "output": "Estrategia indicada.",
+    "examples": [
+      {
+        "input": "1\n85",
+        "output": "CAMBIAR BLANDOS"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir clima, desgaste Como Entero\n    Leer clima\n    Leer desgaste\n\n    Segun clima Hacer\n        // El caso SECO depende del desgaste\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n79",
+        "output": "CONTINUAR"
+      },
+      {
+        "input": "1\n80",
+        "output": "CAMBIAR BLANDOS"
+      },
+      {
+        "input": "2\n10",
+        "output": "CAMBIAR LLUVIA"
+      },
+      {
+        "input": "3\n0",
+        "output": "ENTRAR A BOXES"
+      },
+      {
+        "input": "7\n90",
+        "output": "CLIMA INVALIDO"
+      }
+    ],
+    "required": [
+      "segun",
+      "si"
+    ]
+  },
+  {
+    "id": "SEG26",
+    "title": "Movimiento de inventario",
+    "topic": "Segun",
+    "difficulty": "Avanzado",
+    "statement": "Lee stock actual, tipo de movimiento y cantidad. Tipo 1 INGRESO: suma la cantidad y muestra el nuevo stock. Tipo 2 SALIDA: si hay suficiente stock resta y muestra el nuevo stock; si no, STOCK INSUFICIENTE. Tipo 3 AJUSTE: reemplaza el stock por la cantidad indicada. Otro tipo muestra MOVIMIENTO INVALIDO.",
+    "input": "Stock, tipo de movimiento y cantidad.",
+    "output": "Nuevo stock o mensaje de error.",
+    "examples": [
+      {
+        "input": "50\n2\n20",
+        "output": "30"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir stock, tipo, cantidad Como Entero\n    Leer stock\n    Leer tipo\n    Leer cantidad\n\n    Segun tipo Hacer\n        // Valida la salida de inventario\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "50\n1\n10",
+        "output": "60"
+      },
+      {
+        "input": "50\n2\n20",
+        "output": "30"
+      },
+      {
+        "input": "10\n2\n11",
+        "output": "STOCK INSUFICIENTE"
+      },
+      {
+        "input": "50\n3\n8",
+        "output": "8"
+      },
+      {
+        "input": "50\n9\n3",
+        "output": "MOVIMIENTO INVALIDO"
+      }
+    ],
+    "required": [
+      "segun",
+      "si"
+    ]
+  },
+  {
+    "id": "SEG27",
+    "title": "Pedido por categorías",
+    "topic": "Segun",
+    "difficulty": "Avanzado",
+    "statement": "Un restaurante recibe categoría y producto. Categoría 1 BEBIDAS: producto 1 AGUA, 2 JUGO. Categoría 2 COMIDAS: 1 HAMBURGUESA, 2 PIZZA. Categoría 3 POSTRES: 1 HELADO, 2 TORTA. Usa un Segun dentro de otro Segun. Producto inválido muestra PRODUCTO INVALIDO; categoría inválida muestra CATEGORIA INVALIDA.",
+    "input": "Categoría y producto.",
+    "output": "Nombre del producto o error.",
+    "examples": [
+      {
+        "input": "2\n1",
+        "output": "HAMBURGUESA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir categoria, producto Como Entero\n    Leer categoria\n    Leer producto\n\n    Segun categoria Hacer\n        // Usa otro Segun para el producto\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n1",
+        "output": "AGUA"
+      },
+      {
+        "input": "1\n2",
+        "output": "JUGO"
+      },
+      {
+        "input": "2\n1",
+        "output": "HAMBURGUESA"
+      },
+      {
+        "input": "2\n2",
+        "output": "PIZZA"
+      },
+      {
+        "input": "3\n1",
+        "output": "HELADO"
+      },
+      {
+        "input": "3\n2",
+        "output": "TORTA"
+      },
+      {
+        "input": "2\n8",
+        "output": "PRODUCTO INVALIDO"
+      },
+      {
+        "input": "9\n1",
+        "output": "CATEGORIA INVALIDA"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  },
+  {
+    "id": "SEG28",
+    "title": "Modo de vuelo del dron",
+    "topic": "Segun",
+    "difficulty": "Avanzado",
+    "statement": "Un dron tiene modos: 1 MANUAL, 2 ASISTIDO, 3 AUTONOMO. Lee modo y batería. MANUAL requiere batería >=10; ASISTIDO >=25; AUTONOMO >=50. Si alcanza el mínimo muestra MODO ACTIVADO; si no, BATERIA INSUFICIENTE. Otro modo muestra MODO INVALIDO.",
+    "input": "Modo y porcentaje de batería.",
+    "output": "MODO ACTIVADO, BATERIA INSUFICIENTE o MODO INVALIDO.",
+    "examples": [
+      {
+        "input": "3\n70",
+        "output": "MODO ACTIVADO"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir modo, bateria Como Entero\n    Leer modo\n    Leer bateria\n\n    Segun modo Hacer\n        // Cada modo tiene un mínimo diferente\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n9",
+        "output": "BATERIA INSUFICIENTE"
+      },
+      {
+        "input": "1\n10",
+        "output": "MODO ACTIVADO"
+      },
+      {
+        "input": "2\n24",
+        "output": "BATERIA INSUFICIENTE"
+      },
+      {
+        "input": "2\n25",
+        "output": "MODO ACTIVADO"
+      },
+      {
+        "input": "3\n49",
+        "output": "BATERIA INSUFICIENTE"
+      },
+      {
+        "input": "3\n50",
+        "output": "MODO ACTIVADO"
+      },
+      {
+        "input": "8\n100",
+        "output": "MODO INVALIDO"
+      }
+    ],
+    "required": [
+      "segun",
+      "si"
+    ]
+  },
+  {
+    "id": "SEG29",
+    "title": "Tarifa eléctrica",
+    "topic": "Segun",
+    "difficulty": "Avanzado",
+    "statement": "Lee tipo de cliente y consumo. Tipo 1 residencial: hasta 100 kWh cobra 500 por kWh, más de 100 cobra 650 por kWh. Tipo 2 comercial: hasta 300 cobra 700 por kWh, más de 300 cobra 850 por kWh. Tipo 3 industrial cobra siempre 1000 por kWh. Muestra el total. Otro tipo muestra TIPO INVALIDO.",
+    "input": "Tipo de cliente y consumo.",
+    "output": "Total o TIPO INVALIDO.",
+    "examples": [
+      {
+        "input": "1\n120",
+        "output": "78000"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir tipo Como Entero\n    Definir consumo, total Como Real\n    Leer tipo\n    Leer consumo\n\n    Segun tipo Hacer\n        // Algunos tipos tienen tarifas escalonadas\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n100",
+        "output": "50000"
+      },
+      {
+        "input": "1\n120",
+        "output": "78000"
+      },
+      {
+        "input": "2\n300",
+        "output": "210000"
+      },
+      {
+        "input": "2\n301",
+        "output": "255850"
+      },
+      {
+        "input": "3\n50",
+        "output": "50000"
+      },
+      {
+        "input": "9\n100",
+        "output": "TIPO INVALIDO"
+      }
+    ],
+    "required": [
+      "segun",
+      "si"
+    ]
+  },
+  {
+    "id": "SEG30",
+    "title": "Portal académico",
+    "topic": "Segun",
+    "difficulty": "Avanzado",
+    "statement": "Un portal recibe rol y acción. Rol 1 ESTUDIANTE permite acción 1 VER NOTAS y 2 VER HORARIO. Rol 2 DOCENTE permite 1 REGISTRAR NOTAS y 2 TOMAR ASISTENCIA. Rol 3 ADMIN permite 1 GESTIONAR USUARIOS y 2 CONFIGURAR SISTEMA. Usa Segun anidado. Acción inválida muestra ACCION NO PERMITIDA; rol inválido muestra ROL INVALIDO.",
+    "input": "Rol y acción.",
+    "output": "Texto de la acción o error.",
+    "examples": [
+      {
+        "input": "2\n2",
+        "output": "TOMAR ASISTENCIA"
+      }
+    ],
+    "starter": "Algoritmo solucion\n    Definir rol, accion Como Entero\n    Leer rol\n    Leer accion\n\n    Segun rol Hacer\n        // Usa otro Segun para las acciones\n    FinSegun\nFinAlgoritmo",
+    "tests": [
+      {
+        "input": "1\n1",
+        "output": "VER NOTAS"
+      },
+      {
+        "input": "1\n2",
+        "output": "VER HORARIO"
+      },
+      {
+        "input": "2\n1",
+        "output": "REGISTRAR NOTAS"
+      },
+      {
+        "input": "2\n2",
+        "output": "TOMAR ASISTENCIA"
+      },
+      {
+        "input": "3\n1",
+        "output": "GESTIONAR USUARIOS"
+      },
+      {
+        "input": "3\n2",
+        "output": "CONFIGURAR SISTEMA"
+      },
+      {
+        "input": "1\n9",
+        "output": "ACCION NO PERMITIDA"
+      },
+      {
+        "input": "8\n1",
+        "output": "ROL INVALIDO"
+      }
+    ],
+    "required": [
+      "segun"
+    ]
+  }
+]

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PSeInt Judge | Fundamentos de Programación</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <section id="authView" class="auth-shell">
+    <div class="auth-card">
+      <div class="brand-mark">&lt;/&gt;</div>
+      <p class="eyebrow">FUNDAMENTOS DE PROGRAMACIÓN</p>
+      <h1>PSeInt Judge</h1>
+      <p class="muted">Practica pseudocódigo y valida tus soluciones con casos de prueba automáticos.</p>
+
+      <form id="authForm" class="stack">
+        <label>
+          Código del estudiante
+          <input id="studentCode" autocomplete="username" maxlength="30" placeholder="Ej. 2210456" required>
+        </label>
+        <label>
+          Nombre completo
+          <input id="studentName" autocomplete="name" maxlength="80" placeholder="Ej. Laura Gómez" required>
+        </label>
+        <button class="btn primary" type="submit">Ingresar / registrarme</button>
+      </form>
+
+      <details class="privacy-note">
+        <summary>¿Dónde se guardan mis datos?</summary>
+        <p>Esta edición funciona 100% en el navegador. Los datos se almacenan en <strong>localStorage</strong> de este equipo y pueden exportarse o importarse como JSON.</p>
+      </details>
+    </div>
+  </section>
+
+  <div id="appView" class="app hidden">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark small">&lt;/&gt;</div>
+        <div>
+          <strong>PSeInt Judge</strong>
+          <span>Fundamentos de Programación</span>
+        </div>
+      </div>
+      <div class="top-actions">
+        <span id="userBadge" class="user-badge"></span>
+        <div id="adminTools" class="admin-tools hidden">
+          <button id="exportBtn" class="btn ghost">Exportar JSON</button>
+          <label class="btn ghost file-btn">Importar JSON
+            <input id="importInput" type="file" accept=".json,application/json">
+          </label>
+        </div>
+        <button id="logoutBtn" class="btn danger-lite">Salir</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="progress-card">
+          <div class="progress-head">
+            <span>Tu progreso</span>
+            <strong id="progressText">0 / 0</strong>
+          </div>
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        </div>
+
+        <div class="filter-row">
+          <input id="searchExercise" placeholder="Buscar ejercicio...">
+          <select id="topicFilter">
+            <option value="">Todos los temas</option>
+          </select>
+          <select id="difficultyFilter">
+            <option value="">Todas las dificultades</option>
+            <option value="Básico">Básico</option>
+            <option value="Intermedio">Intermedio</option>
+            <option value="Avanzado">Avanzado</option>
+          </select>
+        </div>
+
+        <nav id="exerciseList" class="exercise-list"></nav>
+      </aside>
+
+      <main class="workspace">
+        <section id="emptyState" class="empty-state">
+          <div class="big-icon">⌨</div>
+          <h2>Selecciona un ejercicio</h2>
+          <p>Resuelve el problema en PSeInt y envíalo al juez.</p>
+        </section>
+
+        <section id="exerciseView" class="exercise-view hidden">
+          <div class="problem-pane">
+            <div class="problem-heading">
+              <div>
+                <p id="problemId" class="eyebrow"></p>
+                <h2 id="problemTitle"></h2>
+              </div>
+              <span id="difficultyBadge" class="difficulty"></span>
+            </div>
+
+            <div class="topic-chip" id="topicChip"></div>
+
+            <h3>Enunciado</h3>
+            <p id="problemStatement"></p>
+
+            <div class="io-grid">
+              <div>
+                <h3>Entrada</h3>
+                <p id="problemInput"></p>
+              </div>
+              <div>
+                <h3>Salida</h3>
+                <p id="problemOutput"></p>
+              </div>
+            </div>
+
+            <h3>Ejemplos</h3>
+            <div id="examples"></div>
+
+            <div class="support-box">
+              <strong>Reglas del juez</strong>
+              <p>Los ejercicios de <strong>Si / Entonces</strong> deben utilizar Si ... Entonces / FinSi y los de <strong>Segun</strong> deben utilizar Segun ... Hacer / FinSegun. Algunos ejercicios avanzados exigen combinar ambas estructuras. El juez valida la estructura y después ejecuta casos de prueba.</p>
+            </div>
+          </div>
+
+          <div class="editor-pane">
+            <div class="editor-toolbar">
+              <div>
+                <strong>solucion.psc</strong>
+                <span id="saveStatus">Guardado local</span>
+              </div>
+              <button id="resetCodeBtn" class="btn ghost small-btn">Restaurar plantilla</button>
+            </div>
+
+            <textarea id="codeEditor" spellcheck="false" aria-label="Editor PSeInt"></textarea>
+
+            <div class="console-panel">
+              <div class="console-head">
+                <strong>Consola</strong>
+                <button id="clearConsoleBtn" class="btn ghost small-btn">Limpiar</button>
+              </div>
+              <pre id="consoleOutput">Selecciona “Probar ejemplo” o “Enviar al juez”.</pre>
+            </div>
+
+            <div class="judge-actions">
+              <button id="runBtn" class="btn ghost">▶ Probar ejemplo</button>
+              <button id="submitBtn" class="btn primary">✓ Enviar al juez</button>
+            </div>
+
+            <div id="judgeResult" class="judge-result hidden"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
